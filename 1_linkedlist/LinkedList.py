@@ -32,13 +32,20 @@ class LinkedList:
         return None
 
     def find_all(self, val):
-        return []
+        found_nodes = []
+        node = self.head
+        while node is not None:
+            if node.value == val:
+                found_nodes.append(node)
+            node = node.next
+        return found_nodes
 
     def delete(self, val, all=False):
         pass
 
     def clean(self):
-        pass
+        self.head = None
+        self.tail = None
 
     def len(self):
         node = self.head
