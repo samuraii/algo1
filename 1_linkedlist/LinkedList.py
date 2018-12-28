@@ -41,7 +41,31 @@ class LinkedList:
         return found_nodes
 
     def delete(self, val, all=False):
-        pass
+        if self.head == None:
+            # Если список пустой
+            return
+
+        while self.head.value == val:
+            # Все случаи если искомый узел первый
+            self.head = self.head.next
+            if not all:
+                return
+            if self.head == None:
+                return 
+
+        node = self.head
+        while node.next != None:
+            if node.next.value == val:
+                # Удаляем следующий узел
+                node.next = node.next.next
+                if not all:
+                    return
+            else:
+                # Переходим к следующему узлу
+                node = node.next
+        # Конец
+        return
+            
 
     def clean(self):
         self.head = None
@@ -56,4 +80,10 @@ class LinkedList:
         return count
 
     def insert(self, afterNode, newNode):
-        pass
+        node = self.head
+        while node is not None:
+            node = node.next
+            if node.value == afterNode.value:
+                newNode.next = node.next
+                node.next = newNode
+                return True
