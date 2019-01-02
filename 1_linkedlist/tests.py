@@ -125,6 +125,37 @@ class TestLinkedListDelete(unittest.TestCase):
         self.l.add_in_tail(Node(1))
         self.l.delete(2)
         assert self.l.len() == 1, 'Длина должна быть равна 1'
+    
+    def test_delete_all_from_tail(self):
+        self.l.add_in_tail(Node(1))
+        self.l.add_in_tail(Node(1))
+        self.l.add_in_tail(Node(2))
+        self.l.add_in_tail(Node(2))
+        self.l.delete(2, all=True)
+        assert self.l.len() == 2, 'Длина должна быть равна 2'
+    
+    def test_delete_all_from_tail_and_head(self):
+        self.l.add_in_tail(Node(2))
+        self.l.add_in_tail(Node(2))
+        self.l.add_in_tail(Node(1))
+        self.l.add_in_tail(Node(1))
+        self.l.add_in_tail(Node(2))
+        self.l.add_in_tail(Node(2))
+        self.l.delete(2, all=True)
+        assert self.l.len() == 2, 'Длина должна быть равна 2'
+    
+        
+    def test_delete_all_from_tail_and_head_and_middle(self):
+        self.l.add_in_tail(Node(2))
+        self.l.add_in_tail(Node(2))
+        self.l.add_in_tail(Node(1))
+        self.l.add_in_tail(Node(6))
+        self.l.add_in_tail(Node(1))
+        self.l.add_in_tail(Node(2))
+        self.l.add_in_tail(Node(2))
+        self.l.delete(2, all=True)
+        self.l.delete(1, all=True)
+        assert self.l.len() == 1, 'Длина должна быть равна 1'
 
 if __name__ == '__main__':
     unittest.main()

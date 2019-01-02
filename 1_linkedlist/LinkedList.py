@@ -22,6 +22,13 @@ class LinkedList:
         while node != None:
             print(node.value)
             node = node.next
+    
+    def print_all_in_chain(self):
+        node = self.head
+        while node != None:
+            print(str(node.value) + '-->', end='')
+            node = node.next
+        print('end')
 
     def find(self, val):
         node = self.head
@@ -66,7 +73,6 @@ class LinkedList:
         # Конец
         return
             
-
     def clean(self):
         self.head = None
         self.tail = None
